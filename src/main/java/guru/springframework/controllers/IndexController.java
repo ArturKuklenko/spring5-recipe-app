@@ -12,7 +12,7 @@ import java.util.Optional;
 /**
  * Created by jt on 6/1/17.
  */
-@Controller
+//@Controller
 public class IndexController {
 
     private CategoryRepository categoryRepository;
@@ -23,7 +23,7 @@ public class IndexController {
         this.unitOfMeasureRepository = unitOfMeasureRepository;
     }
 
-    @RequestMapping({"", "/", "/index"})
+    //@RequestMapping({"", "/", "/index"})
     public String getIndexPage(){
 
         Optional<Category> categoryOptional = categoryRepository.findByDescription("American");

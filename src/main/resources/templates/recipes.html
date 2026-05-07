@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:href="@{/bootstrap-5.3.8/css/bootstrap.min.css}" rel="stylesheet"/>
+    <meta charset="UTF-8"/>
+    <title>Recipe List</title>
+</head>
+<body>
+
+<h2>Recipes</h2>
+
+<table id="recipes" class="table table-striped text-center">
+    <thead>
+    <tr>
+        <th style="width: 150px;">id</th>
+        <th style="width: 200px;">description</th>
+        <th>prepTime</th>
+        <th>cookTime</th>
+        <th style="width: 120px">servings</th>
+        <th>source</th>
+        <th style="width: 200px;">url</th>
+        <th>directions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="recipe : ${recipes}">
+        <td th:text="${recipe.id}"/>
+        <td th:text="${recipe.description}"/>
+        <td th:text="${recipe.prepTime}"/>
+        <td th:text="${recipe.cookTime}"/>
+        <td th:text="${recipe.servings}"/>
+        <td th:text="${recipe.source}"/>
+        <td>
+            <a th:href="${recipe.url}" th:text="${recipe.url}"/></a>
+        </td>
+        <td th:text="${recipe.directions}"/>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
