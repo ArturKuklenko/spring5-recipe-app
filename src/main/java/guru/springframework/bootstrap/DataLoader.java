@@ -214,11 +214,31 @@ public class DataLoader implements CommandLineRunner {
         guacamole.setServings(2);
         //guacamole.setSource();
         guacamole.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
-        //guacamole.setDirections();
+        guacamole.setDirections("1. Cut the avocados:\n" +
+                "Cut the avocados in half. Remove the pit." +
+                " Score the inside of the avocado with a blunt knife and scoop out the flesh with a spoon.\n"+
+                "2. Mash the avocado flesh:\n" +
+                "Using a fork, roughly mash the avocado. Don't overdo it! The guacamole should be a little chunky.\n"+
+                "3. Add the remaining ingredients to taste:\n" +
+                "Sprinkle with salt and lime (or lemon) juice. The acid in the lime juice will provide some balance to the richness of the avocado and will help delay the avocados from turning brown.\n" +
+                "\n" +
+                "Add the chopped onion, cilantro, black pepper, and chilis. Chili peppers vary individually in their spiciness. So, start with a half of one chili pepper and add more to the guacamole to your desired degree of heat.\n" +
+                "\n" +
+                "Remember that much of this is done to taste because of the variability in the fresh ingredients. Start with this recipe and adjust to your taste.\n"+
+                "4. Serve immediately:\n" +
+                "If making a few hours ahead, place plastic wrap on the surface of the guacamole and press down to cover it to prevent air reaching it. (The oxygen in the air causes oxidation which will turn the guacamole brown.)\n" +
+                "\n" +
+                "Garnish with slices of red radish or jicama strips. Serve with your choice of store-bought tortilla chips or make your own homemade tortilla chips.\n" +
+                "\n" +
+                "Refrigerate leftover guacamole up to 3 days.\n" +
+                "\n" +
+                "Note: Chilling tomatoes dulls their flavor. So, if you want to add chopped tomato to your guacamole, add just before serving.\n");
 
         guacamole.setIngredients(guacamoleIngredients);
         guacamole.setImage(guacamoleBytes);
-        //guacamole.setCategories();
+        Set<Category> categories = new HashSet<>();
+        categories.add(mexican);
+        guacamole.setCategories(categories);
 
         recipeRepository.save(guacamole);
         System.out.println("The Best Guacamole recipe loaded.");
@@ -276,10 +296,20 @@ public class DataLoader implements CommandLineRunner {
         easyGroundChickenTacos.setServings(4);
         //easyGroundChickenTacos.setSource();
         easyGroundChickenTacos.setUrl("https://www.simplyrecipes.com/ground-chicken-taco-recipe-11912516");
-        //easyGroundChickenTacos.setDirections();
+        easyGroundChickenTacos.setDirections("1. Brown the chicken:\n" +
+                "Heat a large frying pan over medium heat and add the oil. When it starts to shimmer, add the ground chicken and cook, stirring regularly and breaking it up into small pieces, until no longer pink, 5 to 7 minutes. Add 2 tablespoons of taco seasoning and stir until well combined. \n"+
+                "Simmer:\n" +
+                "2. Add the black beans and tomatoes. If the tomatoes and their juices are on the thicker side, fill the tomato can up to about 1/4 full with water and add that as well. Stir to combine. Bring everything to a simmer, cover, and reduce the heat to medium-low, cooking for 10 minutes. \n"+
+                "Warm the tortillas and serve:\n" +
+                "While the chicken cooks, warm or char your tortillas and get your favorite toppings ready. Remove the lid and stir everything. Taste and add more taco seasoning and/or lime juice, if using, to taste. Depending on the brand or recipe of taco seasoning, you may not need any more. Serve hot in tortillas with shredded cheese, salsa, or any other taco fixings of your choice.\n" +
+                "\n" +
+                "3. Refrigerate leftovers in an airtight container for up to 4 days. Reheat in a skillet with a splash of water, if needed. \n");
 
         easyGroundChickenTacos.setIngredients(easyGroundChickenTacosIngredients);
         easyGroundChickenTacos.setImage(chickenTacosBytes);
+        Set<Category> categories = new HashSet<>();
+        categories.add(mexican);
+        easyGroundChickenTacos.setCategories(categories);
 
         easyGroundChickenTacosIngredients.forEach(i->i.setRecipe(easyGroundChickenTacos));
 
