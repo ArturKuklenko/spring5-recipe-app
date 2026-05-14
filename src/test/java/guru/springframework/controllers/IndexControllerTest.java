@@ -30,7 +30,7 @@ public class IndexControllerTest {
     public void testGetIndexPage() throws Exception {
         String indexPage = indexController.getIndexPage(model);
         assertEquals("index", indexPage);
-        verify(model, times(1)).addAttribute(eq("recipes"), anySet());
         verify(recipeService, times(1)).getRecipes();
+        verify(model, times(1)).addAttribute(eq("recipes"), anySet());
     }
 }
