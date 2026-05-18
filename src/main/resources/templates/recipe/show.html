@@ -48,7 +48,7 @@
                                 <h5>Prep Time:</h5>
                             </div>
                             <div class="col-md-3">
-                                <p class="h-09 mb-0" th:text="${recipe.prepTime}">30 min</p>
+                                <p class="h-09 mb-0" th:text="${recipe.prepTime != null} ? ${recipe.prepTime + ' ' + 'min'}">30 min</p>
                             </div>
                             <div class="col-md-3">
                                 <h5>Difficulty:</h5>
@@ -62,7 +62,7 @@
                                 <h5>Cooktime:</h5>
                             </div>
                             <div class="col-md-3">
-                                <p class="h-09 mb-0" th:text="${recipe.cookTime}">30 min</p>
+                                <p class="h-09 mb-0" th:text="${recipe.cookTime != null} ? ${recipe.cookTime + ' ' + 'min'}">30 min</p>
                             </div>
                             <div class="col-md-3">
                                 <h5>Servings:</h5>
@@ -76,7 +76,7 @@
                                 <h5>Source:</h5>
                             </div>
                             <div class="col-md-3">
-                                <p class="h-09 mb-0" th:text="${recipe.source}">30 min</p>
+                                <p class="h-09 mb-0" th:text="${recipe.source !=null } ? ${recipe.source + ' ' + 'min'}">30 min</p>
                             </div>
                             <div class="col-md-3">
                                 <h5>URL:</h5>
