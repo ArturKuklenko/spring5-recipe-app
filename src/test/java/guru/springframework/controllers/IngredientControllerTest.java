@@ -143,7 +143,6 @@ public class IngredientControllerTest {
                 .andExpect(view().name("recipe/ingredient/list"));
 
         verify(recipeService, times(1)).findById(anyLong());
-        verify(ingredientService, times(1)).findByRecipeIdAndIngredientId(anyLong(), anyLong());
-        verify(ingredientService, times(1)).removeIngredientFromRecipe(any(), any());
+        verify(ingredientService, times(1)).removeIngredientFromRecipe(any(), anyLong());
     }
 }

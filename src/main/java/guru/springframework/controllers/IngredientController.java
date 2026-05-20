@@ -97,8 +97,7 @@ public class IngredientController {
     public String deleteRecipeIngredient(@PathVariable String recipeId,
                                          @PathVariable String id, Model model) {
         Recipe recipe = recipeService.findById(Long.valueOf(recipeId));
-        IngredientCommand ingredientCommand = ingredientService.findByRecipeIdAndIngredientId(Long.valueOf(recipeId), Long.valueOf(id));
-        Recipe recipeWithDeletedIngredient = ingredientService.removeIngredientFromRecipe(recipe, ingredientCommand);
+        Recipe recipeWithDeletedIngredient = ingredientService.removeIngredientFromRecipe(recipe, Long.valueOf(id));
         model.addAttribute("recipe", recipeWithDeletedIngredient);
         return "recipe/ingredient/list";
     }

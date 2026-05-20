@@ -12,5 +12,5 @@ public interface IngredientService {
 
     IngredientCommand saveIngredientCommand(IngredientCommand command);
 
-    Recipe removeIngredientFromRecipe(Recipe recipe, IngredientCommand ingredientCommand);
+    Recipe removeIngredientFromRecipe(Recipe recipe, Long ingredientId);
 }

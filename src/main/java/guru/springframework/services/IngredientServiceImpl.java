@@ -116,17 +116,19 @@ public class IngredientServiceImpl implements IngredientService {
 
     @Override
     @Transactional
-    public Recipe removeIngredientFromRecipe(Recipe recipe, IngredientCommand ingredientCommand) {
-        Ingredient ingredient = ingredientCommandToIngredient.convert(ingredientCommand);
-        if(ingredient.getId() != null) {
+    public Recipe removeIngredientFromRecipe(Recipe recipe, Long ingredientId) {
+        Ingredient ingredient = recipe.getIngredients().stream()
+                .filter(i -> i.getId().equals(ingredientId))
+                .findFirst().get();
+        if(ingredient != null) {
             recipe.getIngredients().remove(ingredient);
             ingredient.setRecipe(null);
             Recipe savedRecipe = recipeRepository.save(recipe);
             return savedRecipe;
         } else {
-            log.error("Can't delete Ingredient: id not found");
+            log.error("Can't delete ingredient: ingredient not found");
+            return recipe;
         }
-        return recipe;
     }
 
 }
