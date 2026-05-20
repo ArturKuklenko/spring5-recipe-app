@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -112,4 +113,20 @@ public class IngredientServiceImpl implements IngredientService {
         }
 
     }
+
+    @Override
+    @Transactional
+    public Recipe removeIngredientFromRecipe(Recipe recipe, IngredientCommand ingredientCommand) {
+        Ingredient ingredient = ingredientCommandToIngredient.convert(ingredientCommand);
+        if(ingredient.getId() != null) {
+            recipe.getIngredients().remove(ingredient);
+            ingredient.setRecipe(null);
+            Recipe savedRecipe = recipeRepository.save(recipe);
+            return savedRecipe;
+        } else {
+            log.error("Can't delete Ingredient: id not found");
+        }
+        return recipe;
+    }
+
 }
